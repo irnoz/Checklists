@@ -78,6 +78,8 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
     didFinishAdding item: ChecklistItem
   ) {
     let newRowIndex = items.count
+    items.append(item)
+    
     let indexPath = IndexPath(row: newRowIndex, section: 0)
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
@@ -96,18 +98,18 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
     }
   }
   
-  // MARK: Actions
-  @IBAction func addItem() {
-    let newRowIndex = items.count
-    
-    let item = ChecklistItem()
-    item.text = "I am new item"
-    items.append(item)
-    
-    let indexPath = IndexPath(row: newRowIndex, section: 0)
-    let indexPaths = [indexPath]
-    tableView.insertRows(at: indexPaths, with: .automatic)
-  }
+//  // MARK: Actions
+//  @IBAction func addItem() {
+//    let newRowIndex = items.count
+//
+//    let item = ChecklistItem()
+//    item.text = "I am new item"
+//    items.append(item)
+//
+//    let indexPath = IndexPath(row: newRowIndex, section: 0)
+//    let indexPaths = [indexPath]
+//    tableView.insertRows(at: indexPaths, with: .automatic)
+//  }
   
   
   // MARK: Private
