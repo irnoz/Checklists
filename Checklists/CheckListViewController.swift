@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CheckListViewController: UITableViewController, AddItemViewControllerDelegate {
+class CheckListViewController: UITableViewController, ItemDetailViewControllerDelegate {
   var items = [ChecklistItem]()
   
   override func viewDidLoad() {
@@ -65,15 +65,15 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
     tableView.deleteRows(at: indexPaths, with: .automatic)
   }
   
-  // MARK: AddItemViewController Delegates
-  func addItemViewControllerDidCancel(
-    _ controller: AddItemViewController
+  // MARK: itemDetailViewController Delegates
+  func itemDetailViewControllerDidCancel(
+    _ controller: ItemDetailViewController
   ) {
     navigationController?.popViewController(animated: true)
   }
   
-  func addItemViewController(
-    _ controller: AddItemViewController,
+  func itemDetailViewController(
+    _ controller: ItemDetailViewController,
     didFinishAdding item: ChecklistItem
   ) {
     let newRowIndex = items.count
@@ -86,8 +86,8 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
     navigationController?.popViewController(animated: true)
   }
   
-  func addItemViewController(
-    _ controller: AddItemViewController,
+  func itemDetailViewController(
+    _ controller: ItemDetailViewController,
     didFinishEditing item: ChecklistItem
   ) {
     if let index = items.firstIndex(of: item) {
@@ -105,10 +105,10 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
     sender: Any?
   ) {
     if segue.identifier == "AddItem" {
-      let controller = segue.destination as! AddItemViewController
+      let controller = segue.destination as! ItemDetailViewController
       controller.delegate = self
     } else if segue.identifier == "EditItem" {
-      let controller = segue.destination as! AddItemViewController
+      let controller = segue.destination as! ItemDetailViewController
       controller.delegate = self
       
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {

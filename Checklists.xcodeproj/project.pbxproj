@@ -14,7 +14,7 @@
 		A8B8F6A82A2F05B200EE3C76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B8F6A72A2F05B200EE3C76 /* Assets.xcassets */; };
 		A8B8F6AB2A2F05B200EE3C76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B8F6A92A2F05B200EE3C76 /* LaunchScreen.storyboard */; };
 		A8B8F6B72A2F35C400EE3C76 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B8F6B62A2F35C400EE3C76 /* ChecklistItem.swift */; };
-		A8B8F6B92A2F4CE200EE3C76 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B8F6B82A2F4CE200EE3C76 /* AddItemViewController.swift */; };
+		A8B8F6B92A2F4CE200EE3C76 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B8F6B82A2F4CE200EE3C76 /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		A8B8F6AA2A2F05B200EE3C76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8B8F6AC2A2F05B200EE3C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8B8F6B62A2F35C400EE3C76 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
-		A8B8F6B82A2F4CE200EE3C76 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		A8B8F6B82A2F4CE200EE3C76 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 				A8B8F6A02A2F05B100EE3C76 /* SceneDelegate.swift */,
 				A8B8F6A22A2F05B100EE3C76 /* CheckListViewController.swift */,
 				A8B8F6B62A2F35C400EE3C76 /* ChecklistItem.swift */,
-				A8B8F6B82A2F4CE200EE3C76 /* AddItemViewController.swift */,
+				A8B8F6B82A2F4CE200EE3C76 /* ItemDetailViewController.swift */,
 				A8B8F6A42A2F05B100EE3C76 /* Main.storyboard */,
 				A8B8F6A72A2F05B200EE3C76 /* Assets.xcassets */,
 				A8B8F6A92A2F05B200EE3C76 /* LaunchScreen.storyboard */,
@@ -144,7 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8B8F6B92A2F4CE200EE3C76 /* AddItemViewController.swift in Sources */,
+				A8B8F6B92A2F4CE200EE3C76 /* ItemDetailViewController.swift in Sources */,
 				A8B8F6A32A2F05B100EE3C76 /* CheckListViewController.swift in Sources */,
 				A8B8F69F2A2F05B100EE3C76 /* AppDelegate.swift in Sources */,
 				A8B8F6A12A2F05B100EE3C76 /* SceneDelegate.swift in Sources */,
