@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CheckListViewController: UITableViewController {
+class CheckListViewController: UITableViewController, AddItemViewControllerDelegate {
   var items = [ChecklistItem]()
   
   override func viewDidLoad() {
@@ -19,7 +19,7 @@ class CheckListViewController: UITableViewController {
     simulateItemsInChecklist()
   }
   
-  // MARK: TableVIew Data Source
+  // MARK: TableView Data Source
   override func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection section: Int
@@ -42,7 +42,7 @@ class CheckListViewController: UITableViewController {
     return cell
   }
   
-  // MARK: TableView Delegate
+  // MARK: TableView Delegates
   override func tableView(
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
@@ -64,6 +64,36 @@ class CheckListViewController: UITableViewController {
     
     let indexPaths = [indexPath]
     tableView.deleteRows(at: indexPaths, with: .automatic)
+  }
+  
+  // MARK: AddItemViewController Delegates
+  func addItemViewControllerDidCancel(
+    _ controller: AddItemViewController
+  ) {
+    navigationController?.popViewController(animated: true)
+  }
+  
+  func addItemViewController(
+    _ controller: AddItemViewController,
+    didFinishAdding item: ChecklistItem
+  ) {
+    let newRowIndex = items.count
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
+    
+    navigationController?.popViewController(animated: true)
+  }
+  
+  // MARK: Navigation
+  override func prepare(
+    for segue: UIStoryboardSegue,
+    sender: Any?
+  ) {
+    if segue.identifier == "AddItem" {
+      let controller = segue.destination as! AddItemViewController
+      controller.delegate = self
+    }
   }
   
   // MARK: Actions

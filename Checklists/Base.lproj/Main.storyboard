@@ -47,7 +47,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="xkV-Ci-R2X">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9LU-DG-eRJ">
                             <connections>
-                                <segue destination="15B-US-T8S" kind="show" id="ldG-Zz-NXn"/>
+                                <segue destination="15B-US-T8S" kind="show" identifier="AddItem" id="ldG-Zz-NXn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,17 +67,21 @@
                         <sections>
                             <tableViewSection id="DE6-XW-2B4">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HDN-Dd-hxW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="HDN-Dd-hxW">
                                         <rect key="frame" x="0.0" y="18" width="375" height="42.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HDN-Dd-hxW" id="Z4d-cS-60O">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="42.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3wN-vM-XLr">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the Item" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3wN-vM-XLr">
                                                     <rect key="frame" x="16" y="4" width="343" height="34.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="15B-US-T8S" eventType="editingDidEndOnExit" id="aB8-K1-iBN"/>
+                                                        <outlet property="delegate" destination="15B-US-T8S" id="c26-hx-vHk"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -102,12 +106,16 @@
                                 <action selector="cancel" destination="15B-US-T8S" id="Mqj-an-3td"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="euU-yD-Xpm">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="euU-yD-Xpm">
                             <connections>
                                 <action selector="done" destination="15B-US-T8S" id="rvZ-GC-g5t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="euU-yD-Xpm" id="pWD-u3-sQu"/>
+                        <outlet property="textField" destination="3wN-vM-XLr" id="p3r-BJ-vNw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eae-gI-lMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
