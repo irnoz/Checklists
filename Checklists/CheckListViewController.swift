@@ -19,7 +19,7 @@ class CheckListViewController: UITableViewController {
     simulateItemsInChecklist()
   }
   
-  //  MARK: TableVIew Data Source
+  // MARK: TableVIew Data Source
   override func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection section: Int
@@ -42,7 +42,7 @@ class CheckListViewController: UITableViewController {
     return cell
   }
   
-  //  MARK: TableView Delegate
+  // MARK: TableView Delegate
   override func tableView(
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
@@ -66,7 +66,7 @@ class CheckListViewController: UITableViewController {
     tableView.deleteRows(at: indexPaths, with: .automatic)
   }
   
-  //  MARK: Actions
+  // MARK: Actions
   @IBAction func addItem() {
     let newRowIndex = items.count
     
@@ -80,7 +80,7 @@ class CheckListViewController: UITableViewController {
   }
   
   
-  //  MARK: Private
+  // MARK: Private
   private func simulateItemsInChecklist() {
     let item1 = ChecklistItem()
     item1.text = "Walk the dog"
