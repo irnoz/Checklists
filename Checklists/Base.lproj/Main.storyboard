@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,27 +17,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="T71-DF-naw">
-                                <rect key="frame" x="0.0" y="50" width="375" height="51"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="T71-DF-naw">
+                                <rect key="frame" x="0.0" y="50" width="375" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T71-DF-naw" id="mxb-Lq-2N3">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="51"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="316.5" height="35"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-L9-R3k">
-                                            <rect key="frame" x="20" y="15" width="311" height="21"/>
+                                            <rect key="frame" x="37" y="4" width="41.5" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbb-AS-dr6">
+                                            <rect key="frame" x="16" y="4" width="19" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" name="AccentColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aAq-L9-R3k" firstAttribute="top" secondItem="mxb-Lq-2N3" secondAttribute="topMargin" constant="4" id="3U6-Hd-h1Q"/>
-                                        <constraint firstItem="aAq-L9-R3k" firstAttribute="leading" secondItem="mxb-Lq-2N3" secondAttribute="leadingMargin" constant="4" id="I3K-tb-J6f"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="aAq-L9-R3k" secondAttribute="bottom" constant="4" id="i9i-F6-BkX"/>
-                                        <constraint firstItem="aAq-L9-R3k" firstAttribute="trailing" secondItem="mxb-Lq-2N3" secondAttribute="trailingMargin" constant="4" id="qxE-JU-2ft"/>
+                                        <constraint firstItem="aAq-L9-R3k" firstAttribute="leading" secondItem="mxb-Lq-2N3" secondAttribute="leading" constant="37" id="Awv-tr-mDZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="fbb-AS-dr6" secondAttribute="bottom" constant="4" id="IKi-Uz-R8X"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aAq-L9-R3k" secondAttribute="trailing" constant="8" id="LSw-c2-Aja"/>
+                                        <constraint firstItem="fbb-AS-dr6" firstAttribute="top" secondItem="mxb-Lq-2N3" secondAttribute="top" constant="4" id="LWx-ty-Ueh"/>
+                                        <constraint firstItem="fbb-AS-dr6" firstAttribute="leading" secondItem="mxb-Lq-2N3" secondAttribute="leading" constant="16" id="SV1-Qw-zHx"/>
+                                        <constraint firstItem="aAq-L9-R3k" firstAttribute="top" secondItem="mxb-Lq-2N3" secondAttribute="top" constant="4" id="alo-Pc-2S0"/>
+                                        <constraint firstItem="aAq-L9-R3k" firstAttribute="leading" secondItem="fbb-AS-dr6" secondAttribute="trailing" constant="2" id="xUb-Yj-hDv"/>
+                                        <constraint firstAttribute="bottom" secondItem="aAq-L9-R3k" secondAttribute="bottom" constant="4" id="zIX-Gd-zNF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="15B-US-T8S" kind="show" identifier="EditItem" trigger="accessoryAction" id="ZfL-pv-ewy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -140,7 +154,13 @@
             <point key="canvasLocation" x="-183.19999999999999" y="-25.637181409295355"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZfL-pv-ewy"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
