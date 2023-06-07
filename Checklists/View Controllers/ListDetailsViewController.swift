@@ -7,27 +7,27 @@
 
 import UIKit
 
-protocol ListDetailsViewVontrollerDelegate: AnyObject {
-  func listDetailsViewVontrollerDidCancel(
-    _ controller: ListDetailsViewVontroller
+protocol ListDetailsViewControllerDelegate: AnyObject {
+  func listDetailsViewControllerDidCancel(
+    _ controller: ListDetailsViewController
   )
-  func listDetailsViewVontroller(
-    _ controller: ListDetailsViewVontroller,
+  func listDetailsViewController(
+    _ controller: ListDetailsViewController,
     didFinishAdding checklist: Checklist
   )
-  func listDetailsViewVontroller(
-    _ controller: ListDetailsViewVontroller,
+  func listDetailsViewController(
+    _ controller: ListDetailsViewController,
     didFinishEditing checklist: Checklist
   )
   
 }
 
 
-class ListDetailsViewVontroller: UITableViewController, UITextFieldDelegate {
+class ListDetailsViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet var textField: UITextField!
   @IBOutlet var doneBarButton: UIBarButtonItem!
   
-  weak var delegate: ListDetailsViewVontrollerDelegate?
+  weak var delegate: ListDetailsViewControllerDelegate?
   
   var checklistToEdit: Checklist?
   
@@ -82,17 +82,17 @@ class ListDetailsViewVontroller: UITableViewController, UITextFieldDelegate {
   
   // MARK: - Actions
   @IBAction func cancel() {
-    delegate?.listDetailsViewVontrollerDidCancel(self)
+    delegate?.listDetailsViewControllerDidCancel(self)
   }
   @IBAction func done() {
     if let checklist = checklistToEdit {
       checklist.name = textField.text!
-      delegate?.listDetailsViewVontroller(
+      delegate?.listDetailsViewController(
         self,
         didFinishEditing: checklist)
     } else {
       let checklist = Checklist(name: textField.text!)
-      delegate?.listDetailsViewVontroller(
+      delegate?.listDetailsViewController(
         self,
         didFinishAdding: checklist)
     }

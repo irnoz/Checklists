@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDelegate, UINavigationControllerDelegate {
+class AllListsViewController: UITableViewController, ListDetailsViewControllerDelegate, UINavigationControllerDelegate {
   var dataModel: DataModel!
   let cellIdentifier = "ChecklistCell"
   
@@ -61,7 +61,7 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     }
     let checklist = dataModel.lists[indexPath.row]
     cell.textLabel!.text = checklist.name
-    cell.accessoryType = .disclosureIndicator
+    cell.accessoryType = .detailDisclosureButton
     
     let count = checklist.countUncheckedItems()
     if checklist.items.count == 0 {
@@ -69,6 +69,8 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     } else {
       cell.detailTextLabel!.text = count == 0 ? "All Tasks are Done!" : "\(checklist.countUncheckedItems()) Tasks Remaining"
     }
+    
+    cell.imageView!.image = UIImage(named: checklist.iconName)
     
     return cell
   }
@@ -99,7 +101,7 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     accessoryButtonTappedForRowWith indexPath: IndexPath
   ) {
     let controller = storyboard?.instantiateViewController(
-      withIdentifier: "ListDetailViewController") as! ListDetailsViewVontroller
+      withIdentifier: "ListDetailsViewController") as! ListDetailsViewController
     controller.delegate = self
     
     let checklist = dataModel.lists[indexPath.row]
@@ -109,13 +111,13 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
   }
   
   // MARK: - List Details View Controller Deligates
-  func listDetailsViewVontrollerDidCancel(
-    _ controller: ListDetailsViewVontroller) {
+  func listDetailsViewControllerDidCancel(
+    _ controller: ListDetailsViewController) {
       navigationController?.popViewController(animated: true)
     }
   
-  func listDetailsViewVontroller(
-    _ controller: ListDetailsViewVontroller,
+  func listDetailsViewController(
+    _ controller: ListDetailsViewController,
     didFinishAdding checklist: Checklist
   ) {
     let newRowIndex = dataModel.lists.count
@@ -126,10 +128,16 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     tableView.insertRows(at: indexPaths, with: .automatic)
     
     navigationController?.popViewController(animated: true)
+    
+//    // if we sort table view
+//    dataModel.lists.append(checklist)
+//    dataModel.sortChecklists()
+//    tableView.reloadData()
+//    navigationController?.popViewController(animated: true)
   }
   
-  func listDetailsViewVontroller(
-    _ controller: ListDetailsViewVontroller,
+  func listDetailsViewController(
+    _ controller: ListDetailsViewController,
     didFinishEditing checklist: Checklist
   ) {
     if let index = dataModel.lists.firstIndex(of: checklist) {
@@ -139,6 +147,11 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
       }
     }
     navigationController?.popViewController(animated: true)
+
+//    // if we sort table view
+//    dataModel.sortChecklists()
+//    tableView.reloadData()
+//    navigationController?.popViewController(animated: true)
   }
   
   // MARK: - Navigation Controller Delegates
@@ -162,7 +175,7 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
       let controller = segue.destination as! CheckListViewController
       controller.checklist = sender as? Checklist
     } else if segue.identifier == "AddChecklist" {
-      let controller = segue.destination as! ListDetailsViewVontroller
+      let controller = segue.destination as! ListDetailsViewController
       controller.delegate = self
     }
   }

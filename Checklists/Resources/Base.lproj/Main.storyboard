@@ -185,7 +185,7 @@
         <!--Add Checklist-->
         <scene sceneID="4Uh-Jz-sez">
             <objects>
-                <tableViewController storyboardIdentifier="ListDetailsViewVontroller" id="Jdu-T3-Mz3" customClass="ListDetailsViewVontroller" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListDetailsViewController" id="Jdu-T3-Mz3" customClass="ListDetailsViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="dn2-Pd-FCz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +249,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JnQ-8p-Z4h"/>
+        <segue reference="AKa-hk-vob"/>
         <segue reference="ZfL-pv-ewy"/>
     </inferredMetricsTieBreakers>
     <resources>
