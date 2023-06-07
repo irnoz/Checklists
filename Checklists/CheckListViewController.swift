@@ -9,13 +9,15 @@ import UIKit
 
 class CheckListViewController: UITableViewController, ItemDetailViewControllerDelegate {
   var items = [ChecklistItem]()
+  var checklist: Checklist!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationController?.navigationBar.prefersLargeTitles = true
-    
-//    simulateItemsInChecklist()
+    navigationItem.largeTitleDisplayMode = .never
+    title = checklist.name
+
+//    simulateChecklistItems()
     // Load items
     loadChecklistItems()
     
@@ -46,7 +48,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     return cell
   }
   
-  // MARK: TableView Delegates
+  // MARK: Table View Delegates
   override func tableView(
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
@@ -74,7 +76,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     saveChecklistItems()
   }
   
-  // MARK: itemDetailViewController Delegates
+  // MARK: ItemDetailViewController Delegates
   func itemDetailViewControllerDidCancel(
     _ controller: ItemDetailViewController
   ) {
@@ -131,7 +133,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
   }
   
   // MARK: Private
-  private func simulateItemsInChecklist() {
+  private func simulateChecklistItems() {
     let item1 = ChecklistItem()
     item1.text = "Walk the dog"
     items.append(item1)
