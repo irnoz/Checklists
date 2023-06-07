@@ -7,16 +7,32 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDelegate {
+class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDelegate, UINavigationControllerDelegate {
   var dataModel: DataModel!
   let cellIdentifier = "ChecklistCell"
   
+  // MARK: - Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationController?.navigationBar.prefersLargeTitles = true
     
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+  }
+  
+  // important ! p:439
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    navigationController?.delegate = self
+    
+    let index = dataModel.indexOfSelectedChecklist
+    if index >= 0 && index < dataModel.lists.count {
+      let checkList = dataModel.lists[index]
+      performSegue(
+        withIdentifier: "ShowChecklist",
+        sender: checkList)
+    }
   }
   
   // MARK: - Table view data source
@@ -57,6 +73,7 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
   ) {
+    dataModel.indexOfSelectedChecklist = indexPath.row
     let checklist = dataModel.lists[indexPath.row]
     performSegue(withIdentifier: "ShowChecklist", sender: checklist)
   }
@@ -75,7 +92,7 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     navigationController?.pushViewController(controller, animated: true)
   }
   
-  // MARK: - ListDetailsViewVontroller Deligate
+  // MARK: - List Details View Controller Deligates
   func listDetailsViewVontrollerDidCancel(
     _ controller: ListDetailsViewVontroller) {
       navigationController?.popViewController(animated: true)
@@ -106,6 +123,18 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
       }
     }
     navigationController?.popViewController(animated: true)
+  }
+  
+  // MARK: - Navigation Controller Delegates
+  func navigationController(
+    _ navigationController: UINavigationController,
+    willShow viewController: UIViewController,
+    animated: Bool
+  ) {
+    // if back button was tapped
+    if viewController === self {
+      dataModel.indexOfSelectedChecklist = -1
+    }
   }
   
   // MARK: - Navigation
