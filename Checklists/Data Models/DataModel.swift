@@ -48,6 +48,13 @@ class DataModel {
     }
   }
   
+  class func nextChecklistItemID() -> Int {
+    let userDefaults = UserDefaults.standard
+    let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+    userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+    return itemID
+  }
+  
   // MARK: - Data Saving
   func documentsDirectory() -> URL {
     let paths = FileManager.default.urls(
@@ -109,6 +116,7 @@ class DataModel {
     // Add placeholder item data
     for list in lists {
       let item = ChecklistItem(text: "Item for \(list.name)")
+//      item.text = "Item for \(list.name)"
       list.items.append(item)
     }
   }
