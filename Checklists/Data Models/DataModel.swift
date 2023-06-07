@@ -108,8 +108,7 @@ class DataModel {
   private func simulateChecklistItems() {
     // Add placeholder item data
     for list in lists {
-      let item = ChecklistItem()
-      item.text = "Item for \(list.name)"
+      let item = ChecklistItem(text: "Item for \(list.name)")
       list.items.append(item)
     }
   }
