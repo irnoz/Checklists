@@ -16,8 +16,11 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     super.viewDidLoad()
     
     navigationController?.navigationBar.prefersLargeTitles = true
-    
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
   }
   
   // important ! p:439
@@ -47,12 +50,25 @@ class AllListsViewController: UITableViewController, ListDetailsViewVontrollerDe
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(
-      withIdentifier: cellIdentifier,
-      for: indexPath)
+    let cell: UITableViewCell!
+    if let tmp = tableView.dequeueReusableCell(
+      withIdentifier: cellIdentifier) {
+      cell = tmp
+    } else {
+      cell = UITableViewCell(
+        style: .subtitle,
+        reuseIdentifier: cellIdentifier)
+    }
     let checklist = dataModel.lists[indexPath.row]
     cell.textLabel!.text = checklist.name
     cell.accessoryType = .disclosureIndicator
+    
+    let count = checklist.countUncheckedItems()
+    if checklist.items.count == 0 {
+      cell.detailTextLabel!.text = "(No Tasks)"
+    } else {
+      cell.detailTextLabel!.text = count == 0 ? "All Tasks are Done!" : "\(checklist.countUncheckedItems()) Tasks Remaining"
+    }
     
     return cell
   }
