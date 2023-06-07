@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Checklist: NSObject {
+class Checklist: NSObject, Codable {
   var name: String
   var items = [ChecklistItem]()
   
