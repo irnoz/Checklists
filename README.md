@@ -3,7 +3,9 @@
 </p> -->
 <!-- <img src=https://github.com/irnoz/Checklists/assets/58843342/1504af31-735c-485c-bec7-4aa70bfc24fd width="100" height="100"/> -->
 <!-- <img src=https://github.com/irnoz/Checklists/assets/58843342/15e8c7d4-ee48-4d8a-86ac-674595cabd94 width="200" height="400"/> -->
-# Checklists  
+# ✓ Checklists ✓
+
+<img src=https://github.com/irnoz/Checklists/assets/58843342/a66babc7-43ec-4565-92dc-6efb4f179713 width="100" height="100"/>
 
 <!-- **Checklists**  -->
 Checklists is an application 📱 built to demonstrate use and knowledge of Swift programming language and the followeing concepts: navigation flow, displaying data lists, and the idea of modeling and persisting your data.
