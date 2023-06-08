@@ -2,41 +2,33 @@
   <img src="Qarty/AppIcon.appiconset/qarty-appicon.png" height="128"/>
 </p> -->
 <!-- <img src=https://github.com/irnoz/Checklists/assets/58843342/1504af31-735c-485c-bec7-4aa70bfc24fd width="100" height="100"/> -->
+<!-- <img src=https://github.com/irnoz/Checklists/assets/58843342/15e8c7d4-ee48-4d8a-86ac-674595cabd94 width="200" height="400"/> -->
+# Checklists  
 
-# Qarty 
-
-**Qarty** 
-Qarty is an application 📱 built to demonstrate use and knowledge of Swift programming language.
+<!-- **Checklists**  -->
+Checklists is an application 📱 built to demonstrate use and knowledge of Swift programming language and the followeing concepts: navigation flow, displaying data lists, and the idea of modeling and persisting your data.
 
 ## 💡 About the Project
 
-This project aims to demonstrate the use of SWiftUI and Combine frameworks.
-The app provides User friendly interface and beautiful animations to display flashcards that help users quickly learn new words in georgian language.
+This project aims to demonstrate the use of Swift and Cocoa. To-do list apps are one of the most popular types of app on the App Store and this is one of them. Checklists uses MVC and Delegate Design Patterns, supports Local Notifications and UserDefaults and for data persistence it encodes and saves elements to the documents folder. The app displays check lists which contain to-do list items, that can be checked if already done.
 
-<img src=https://github.com/irnoz/Qarty/assets/58843342/72ea59db-2422-4df0-946e-1f10bde60a0f width="200" height="400"/>
-<img src=https://github.com/irnoz/Qarty/assets/58843342/a707f431-4495-48df-b032-2fc4ab072369 width="200" height="400"/>
+<img src=https://github.com/irnoz/Checklists/assets/58843342/1d623f9b-146e-48ac-afec-c771b797e84e width="200" height="400"/> 
+<img src=https://github.com/irnoz/Checklists/assets/58843342/09baa3d9-2c94-4726-b51a-e5b12014b587 width="200" height="400"/> 
 
-Qarty also provides challenges to check users knowledge and memory (number of challenges can be adjusted from settings).
+Checklists also provides seperate views to add or edit both check list and items lists. you can also add reminders to any item or an icon to check list. Picking icon for check list is supported by its own view controller
 
-<img src=https://github.com/irnoz/Qarty/assets/58843342/d7ff4412-061f-48c6-99ee-974a1bc81d72 width="200" height="400"/>
-<img src=https://github.com/irnoz/Qarty/assets/58843342/2decdf01-a7ef-4d28-b4d9-73e2ad189f40 width="200" height="400"/>
-<img src=https://github.com/irnoz/Qarty/assets/58843342/4a5fa73f-a968-4601-8445-2633e9493435 width="200" height="400"/>
-
-The app contains adjustable settings and the ability to set daily reminders so that you'll never forget to practice.
-
-<img src=https://github.com/irnoz/Qarty/assets/58843342/bbe7df8f-a8ee-41f0-90d6-8b9e30f0c322 width="200" height="400"/>
-
-Qarty also comes with user friendly log in screen and great username and password validation😃
-
-<img src=https://github.com/irnoz/Qarty/assets/58843342/18683cf7-af6d-4de8-ae1d-87e7634c772d width="200" height="400"/>
-<img src=https://github.com/irnoz/Qarty/assets/58843342/9caac5cc-bdff-42b1-a02c-5b7d5866d224 width="200" height="400"/>
+<img src=https://github.com/irnoz/Checklists/assets/58843342/a9f0ca9d-5964-409a-a632-b36a3bef8ca1 width="200" height="400"/>
+<img src=https://github.com/irnoz/Checklists/assets/58843342/6b80f1b5-d3f8-433f-921b-b3f684545d43 width="200" height="400"/>
+<img src=https://github.com/irnoz/Checklists/assets/58843342/1683eb3f-5190-4bfa-bdb2-85eeb266b83e width="200" height="400"/> 
+<img src=https://github.com/irnoz/Checklists/assets/58843342/06df6a71-200d-4087-bcd7-4136287fe8b8 width="200" height="400"/> 
 
 ## Built With
 
-* SwiftUI
-* Combine
-* MVC Design pattern
-* AppStorage
+* UIKit
+* Cooa (Touch)
+* MVC (Model-View-Controller) Design Pattern
+* Delegate Design pattern
+* NotificationCenter
 * UserDefaults
 
 ## Want to Contribute 🙋‍♂️?
@@ -59,9 +51,8 @@ Just clone the roepo and you are all set.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/irnoz/Qarty.git
+   git clone https://github.com/irnoz/Checklists.git
    ```
-
 ## Want to discuss? 💬
 
 <!-- Have any questions, doubts or want to present your opinions, views? You're always welcome.->
